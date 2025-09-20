@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "python3 dream_layer_backend/dream_layer.py"
+healthcheckPath = "/api/models"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[env]
+PYTHON_VERSION = "3.11"
+PORT = "5002"
