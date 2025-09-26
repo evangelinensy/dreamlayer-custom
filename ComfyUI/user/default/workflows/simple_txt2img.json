@@ -1,0 +1,108 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "stable-diffusion-v1-5.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "a beautiful abstract disc artwork, flowing organic streaks, electric blue to neon purple gradient, luminous highlights, motion blur effect, ethereal painterly quality, soft blended edges, subtle noise grain, artistic composition, circular vinyl disc, high contrast, energetic mood, contemporary digital art, 300x300px, high quality, centered",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "hard edges, sharp lines, geometric patterns, text, logos, borders, frames, blocks, tiles, mosaic, checkerboard, stripes, lines, sharp transitions, defined areas, sections, compartments, solid colors, flat colors, uniform colors, square composition, rectangular, vintage, film grain, old, worn, simple gradients, basic colors, low contrast, flat design, UI elements, buttons, icons, clean design",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "samples": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "5": {
+    "inputs": {
+      "seed": 123456789,
+      "steps": 25,
+      "cfg": 6.5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "6": {
+    "inputs": {
+      "batch_size": 1,
+      "width": 300,
+      "height": 300,
+      "value": 1.0
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

@@ -56,7 +56,7 @@ def transform_to_txt2img_workflow(data):
             seed = random.randint(0, 2**32 - 1)
         
         # Handle model name validation
-        model_name = data.get('model_name', 'juggernautXL_v8Rundiffusion.safetensors')
+        model_name = data.get('model_name', 'stable-diffusion-v1-5.safetensors')
         
         # Check if it's a closed-source model (DALL-E, FLUX, Ideogram, etc.)
         closed_source_models = ['dall-e-3', 'dall-e-2', 'flux-pro', 'flux-dev', 'ideogram-v3']

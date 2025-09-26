@@ -29,7 +29,7 @@ def transform_to_img2img_workflow(data):
     """
 
     # Determine model type and features
-    model_name = data.get('model_name', 'v1-6-pruned-emaonly-fp16.safetensors')
+    model_name = data.get('model_name', 'stable-diffusion-v1-5.safetensors')
     use_controlnet = bool(data.get('controlnet'))
     use_lora = bool(data.get('lora'))
 
@@ -76,7 +76,7 @@ def transform_to_img2img_workflow(data):
     cfg_scale = max(1.0, min(20.0, float(data.get('cfg_scale', 7.0))))
     denoising_strength = max(0.0, min(1.0, float(data.get('denoising_strength', 0.75))))
     input_image = data.get('input_image', '')
-    model_name = data.get('model_name', 'v1-6-pruned-emaonly-fp16.safetensors')
+    model_name = data.get('model_name', 'stable-diffusion-v1-5.safetensors')
     sampler_name = data.get('sampler_name', 'euler')
     scheduler = data.get('scheduler', 'normal')
     
